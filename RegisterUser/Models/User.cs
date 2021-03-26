@@ -17,7 +17,7 @@ namespace RegisterUser.Models
 		public string Name { get; set; }
 
 		[Required(ErrorMessage = "Birth Required!", AllowEmptyStrings = false)]
-		public DateTime Birth { get; set; }
+		public int Birth { get; set; }
 
 		[Required(ErrorMessage = "Email Required!", AllowEmptyStrings = false)]
 		public string Email { get; set; }
@@ -28,7 +28,20 @@ namespace RegisterUser.Models
 
 		public bool Active { get; set; } = true;
 
+		public User(string status, int id, string name, int birth, string email, string password, string sex, bool active)
+		{
+			this.status = status;
+			Id = id;
+			Name = name;
+			Birth = birth;
+			Email = email;
+			Password = password;
+			Sex = sex;
+			Active = active;
+		}
 
-
+		public User()
+		{
+		}
 	}
 }

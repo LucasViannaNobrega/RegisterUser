@@ -12,6 +12,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using RegisterUser.Models;
+using RegisterUser.IService;
+using RegisterUser.Service;
 
 namespace RegisterUser
 {
@@ -27,8 +29,9 @@ namespace RegisterUser
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("UsersList"));
+			/*services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("UsersList"));*/
 			services.AddControllers();
+			services.AddScoped < IGenericService < User >, UserService > ();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
